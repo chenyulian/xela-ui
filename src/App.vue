@@ -1,6 +1,6 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <router-link to="/">主页</router-link>
+  <router-view />
 </template>
 
 <script>
