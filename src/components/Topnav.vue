@@ -29,16 +29,18 @@ import { inject, Ref } from "vue";
 
 <style lang="scss" scoped>
 .topnav {
+    width: 100%;
     background: lightsalmon;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 16px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10;
     & .logo {
         max-width: 6em;
-        height: 1em;
         margin-right: auto;
         &:hover {
             cursor: pointer;
