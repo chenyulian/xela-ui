@@ -23,6 +23,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px;
+    position: relative;
+    z-index: 10;
     & .logo {
         max-width: 6em;
         margin-right: auto;
