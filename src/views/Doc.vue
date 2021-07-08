@@ -57,15 +57,14 @@ import Topnav from "../components/Topnav.vue";
 aside {
     width: 150px;
     padding: 16px;
+    background-color:lightyellow;
     position:fixed;
     top: 0;
     left: 0;
     padding-top: 70px;
-    background-color:lightyellow;
     h2 {
         margin-top: 4px;
     }
-
     ol {
         li {
             padding: 4px 0;

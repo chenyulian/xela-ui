@@ -1,18 +1,19 @@
 <template>
     <div class="topnav">
-        <div class="logo" @click="toggleAside">LOGO</div>
+        <div class="logo">LOGO</div>
         <div class="menu">
             <ul class="menu">
                 <li>菜单1</li>
                 <li>菜单2</li>
             </ul>
         </div>
+        <span class="toggleAside" @click="toggleAside"></span>
     </div>
 </template>
 
 <script lang="ts">
 // import { inject, Ref } from '@vue/runtime-core'
-import { inject, Ref } from 'vue'
+import { inject, Ref } from "vue";
     export default {
         name: "Topnav",
         setup() {
@@ -37,6 +38,7 @@ import { inject, Ref } from 'vue'
     z-index: 10;
     & .logo {
         max-width: 6em;
+        height: 1em;
         margin-right: auto;
         &:hover {
             cursor: pointer;
@@ -49,6 +51,30 @@ import { inject, Ref } from 'vue'
         flex-wrap: nowrap;
         > li {
             margin: 0 1em;
+        }
+    }
+
+    & .toggleAside {
+        display: none;
+        width: 24px;
+        height: 24px;
+        background: purple;
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @media (max-width: 500px) {
+        & .menu {
+            display: none;
+        }
+
+        & .logo {
+            margin: 0 auto;
+        }
+
+        & .toggleAside {
+            display: inline-block;
         }
     }
 }
