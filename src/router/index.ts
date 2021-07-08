@@ -31,4 +31,7 @@ export const router = createRouter({
             {path: "label", component: LabelDemo}
         ]} 
     ]
-})
+});
+router.afterEach( route => {
+    
+});

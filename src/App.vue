@@ -4,13 +4,18 @@
 
 <script lang="ts">
 import { ref, provide } from "vue";
+import { router } from "./router/index";
 export default {
   name: "App",
   setup(){
     const width = document.documentElement.clientWidth;
     const asideVisible = ref(width >= 500 ? true:false);
     provide("asideVisible",asideVisible);
-  },
- 
-};
+    router.afterEach(() => {
+     if(width <= 500) {
+       asideVisible.value = false;
+     }
+    });
+  }
+}
 </script>
