@@ -18,7 +18,7 @@
 
 <style lang="scss" scoped>
 .topnav {
-    background: pink;
+    background: lightsalmon;
     display: flex;
     justify-content: space-between;
     align-items: center;
