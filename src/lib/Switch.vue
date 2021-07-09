@@ -7,8 +7,6 @@
 </template>
 
 <script lang="ts">
-    import {ref} from "vue";
-
     export default {
         setup(props, context) {
             const toggleChecked = () => {
