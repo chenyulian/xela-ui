@@ -43,7 +43,7 @@ import Button from "./Button.vue";
         },
         setup(props, context) {
             const close = () => {
-                context.emit("update:visible", !props.visible);
+                context.emit("update:visible", false);
             }
 
             const clickOnOverlay = ()=> {
@@ -53,6 +53,7 @@ import Button from "./Button.vue";
             }
 
             const ok = () => {
+                console.log("ok")
                 if(props.ok?.()) {
                     close();
                 }
