@@ -1,6 +1,6 @@
 <template>
     <template v-if="visible">
-        <div class="xela-dialog-overlay">
+        <div class="xela-dialog-overlay" @click="clickOnOverlay">
         </div>
         <div class="xela-dialog-wrapper">
             <div class="xela-dialog">
@@ -10,8 +10,8 @@
                     <p>内容2</p>
                 </main>
                 <footer>
-                    <Button type="primary">确定</Button>
-                    <Button>取消</Button>
+                    <Button type="primary" @click="ok">确定</Button>
+                    <Button @click="cancel">取消</Button>
                 </footer>
             </div>
         </div>
@@ -30,6 +30,16 @@ import Button from "./Button.vue";
             visible: {
                 type: Boolean,
                 default: false
+            },
+            closeOnClickOverlay: {
+                type: Boolean,
+                default: true
+            },
+            ok: {
+                type: Function
+            },
+            cancel: {
+                type: Function
             }
         },
         setup(props, context) {
@@ -37,8 +47,25 @@ import Button from "./Button.vue";
                 context.emit("update:visible", !props.visible);
             }
 
+            const clickOnOverlay = ()=> {
+                if(props.closeOnClickOverlay === true) {
+                    close();
+                }
+            }
+
+            const ok = () => {
+                if(props.ok?.()) {
+                    close();
+                }
+            }
+
+            const cancel = () => {
+                context.emit("cancel");
+                close();
+            }
+
             return {
-                close
+                close,clickOnOverlay,ok,cancel
             }
         }
     }
