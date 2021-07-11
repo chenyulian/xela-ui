@@ -1,19 +1,21 @@
 <template>
-    <div class="xela-dialog-overlay">
-    </div>
-    <div class="xela-dialog-wrapper">
-        <div class="xela-dialog">
-            <header>标题 <span class="xela-dialog-close"></span></header>
-            <main>
-                <p>内容1</p>
-                <p>内容2</p>
-            </main>
-            <footer>
-                <Button type="primary">确定</Button>
-                <Button>取消</Button>
-            </footer>
+    <template v-if="visible">
+        <div class="xela-dialog-overlay">
         </div>
-    </div>
+        <div class="xela-dialog-wrapper">
+            <div class="xela-dialog">
+                <header>标题 <span class="xela-dialog-close" @click="close"></span></header>
+                <main>
+                    <p>内容1</p>
+                    <p>内容2</p>
+                </main>
+                <footer>
+                    <Button type="primary">确定</Button>
+                    <Button>取消</Button>
+                </footer>
+            </div>
+        </div>
+    </template>
 </template>
 
 <script lang="ts">
@@ -23,6 +25,21 @@ import Button from "./Button.vue";
         name: "Dialog",
         components: {
             Button
+        },
+        props: {
+            visible: {
+                type: Boolean,
+                default: false
+            }
+        },
+        setup(props, context) {
+            const close = () => {
+                context.emit("update:visible", !props.visible);
+            }
+
+            return {
+                close
+            }
         }
     }
 </script>
