@@ -1,5 +1,5 @@
 <template>
-    <button class="switch" 
+    <button class="xela-switch" 
             :class="{checked:value}"
             @click="toggleChecked">
         <span></span>
@@ -20,10 +20,11 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+    @import "./xela.scss";
     $h: 20px;
     $h2: $h - 4px;
-    button.switch {
+    .xela-switch {
         width: 2 * $h;
         height: $h;
         border: none;

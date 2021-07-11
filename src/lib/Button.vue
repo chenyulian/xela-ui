@@ -1,6 +1,7 @@
 <template>
     <button class="xela-button" 
             :class="classes"
+            :disabled="disabled"
             >
         <span v-if="loading" class="xela-loadingIndicator"></span>
         <slot />
@@ -52,7 +53,9 @@
                 let baseColorVal = baseColor.value;
                 return LightenDarkenColor(baseColorVal, 80);
             });
-            return { classes, color, baseColor, darkenColor, lightenColor, shadowColor };
+            return { classes, color, baseColor, 
+                darkenColor, lightenColor, shadowColor,
+                disabled };
             
         },
         props: {
@@ -85,6 +88,7 @@
 </script>
 
 <style lang="scss">
+@import "./xela.scss";
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
@@ -93,6 +97,7 @@ $color-base: v-bind(baseColor);
 $color-darken: v-bind(darkenColor);
 $color-lighten: v-bind(lightenColor);
 $color-shadow: v-bind(shadowColor);
+$grey: grey;
 
 .xela-button {
     box-sizing: border-box;
@@ -202,7 +207,32 @@ $color-shadow: v-bind(shadowColor);
     &.xela-button-type-dashed {
         border-style: dashed;
     }
+
+    &.xela-button-type-default {
+        &[disabled] {
+        cursor: not-allowed;
+        color: $grey;
+        &:hover {
+            border-color: $border-color;
+        }
+        }
+    }
+
+    &.xela-button-type-primary {
+        &[disabled] {
+            cursor: not-allowed;
+            background-color: $grey;
+        }
+    }
+    &.xela-button-type-link, &.xela-button-type-text {
+        &[disabled] {
+        cursor: not-allowed;
+        color: $grey;
+        }
+    }
 }
+
+ 
 
 .xela-loadingIndicator {
      width: 14px;

@@ -47,6 +47,13 @@
         <Button type="primary" color="#8a2be2" loading>8a2be2</Button>
         <Button color="#ff69b4">ff69b4</Button>
     </div>
+    <div>
+        <h2>按钮禁用</h2> 
+        <Button type="primary" disabled>禁用</Button>
+        <Button disabled loading >禁用</Button>
+        <Button type="link" disabled>禁用</Button>
+        <Button type="text" disabled>禁用</Button>
+    </div>
 </template>
 <script lang="ts">
 import Button from "../../lib/Button.vue"
