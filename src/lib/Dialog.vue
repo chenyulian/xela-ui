@@ -4,10 +4,9 @@
         </div>
         <div class="xela-dialog-wrapper">
             <div class="xela-dialog">
-                <header>标题 <span class="xela-dialog-close" @click="close"></span></header>
+                <header><slot name="title" /> <span class="xela-dialog-close" @click="close"></span></header>
                 <main>
-                    <p>内容1</p>
-                    <p>内容2</p>
+                   <slot name="content" />
                 </main>
                 <footer>
                     <Button type="primary" @click="ok">确定</Button>
