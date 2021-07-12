@@ -14,6 +14,9 @@
                     <li>
                         <router-link to="/doc/dialog">Dialog组件</router-link>
                     </li>
+                     <li>
+                        <router-link to="/doc/tabs">Tabs组件</router-link>
+                    </li>
                     <li>
                         <router-link to="/doc/select">Select组件</router-link>
                     </li>

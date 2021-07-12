@@ -11,7 +11,7 @@ import SelectDemo from "../components/demo/SelectDemo.vue";
 import TooltipDemo from "../components/demo/TooltipDemo.vue";
 import LabelDemo from "../components/demo/LabelDemo.vue";
 import AlertDemo from "../components/demo/AlertDemo.vue";
-
+import TabsDemo from "../components/demo/TabsDemo.vue";
 
 const history = createWebHashHistory();
 export const router = createRouter({
@@ -23,6 +23,7 @@ export const router = createRouter({
             {path: "button", component: ButtonDemo},
             {path: "switch", component: SwitchDemo},
             {path: "dialog", component: DialogDemo},
+            {path: "tabs", component: TabsDemo},
             {path: "select", component: SelectDemo},
             {path: "input", component: InputDemo},
             {path: "avatar", component: AvatarDemo},
