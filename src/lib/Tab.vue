@@ -9,6 +9,10 @@
             title: {
                 type:String,
                 default: "默认标签"
+            },
+            name: {
+                type: String,
+                required: true
             }
         }
     }

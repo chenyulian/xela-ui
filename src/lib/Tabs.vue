@@ -1,20 +1,29 @@
 <template>
 <div class="xela-tabs">
     <div class="xela-tabs-nav">
-        <div class="xela-tabs-item selected" v-for="(title, index) in titles" :key="index">{{title}}</div>
+        <div class="xela-tabs-item"
+            v-for="(tab, index) in defaults" 
+            :class="{selected: selected === tab.props.name}" 
+            :key="index"
+            @click="select(tab.props.name)">{{tab.props.title}}</div>
     </div>
 
     <div class="xela-tabs-content">
-        <component v-for="(c, index) in defaults" :key="index" :is = "c" />
-    </div>
+        <component :is="currentTab" :key="currentTab.props.name"></component>
+    </div>    
 </div>
-    
 </template>
 
-<script>
+<script lang="ts">
+import { computed } from "vue";
 import Tab from "./Tab.vue";
     export default {
         name: "Tabs",
+        props: {
+            selected: {
+                type: String
+            }
+        },
         setup(props,  context) {
             const defaults = context.slots.default();
             defaults.forEach((tag) => {
@@ -23,10 +32,16 @@ import Tab from "./Tab.vue";
                 }
             });
 
-            const titles = defaults.map((tag) => {
-                return tag.props.title;
-            })
-            return { defaults, titles }
+            const select = (name: String) => {
+                context.emit("update:selected", name);
+            }
+
+            const currentTab = computed(() => {
+                return defaults.find((tag) => {
+                    return tag.props.name === props.selected;
+                });
+            });
+            return { defaults, select, currentTab }
         }
     }
 </script>
