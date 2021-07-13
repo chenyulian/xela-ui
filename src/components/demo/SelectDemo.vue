@@ -2,7 +2,7 @@
     <h1>Select组件</h1>
     <h2>示例一</h2>
     <div class="select-container">
-         <Select v-model:value="value" :options="options">
+         <Select v-model:value="value" :options="options" />
         {{value}}
     </div>
    
@@ -21,6 +21,10 @@ export default {
             {label: "选项1", value: "op1"},
             {label: "选项2222222222222", value: "op2"},
             {label: "选项3", value: "op3"},
+            {label: "选项4", value: "op4"},
+            {label: "选项5", value: "op5"},
+            {label: "选项6", value: "op6"},
+            {label: "选项7", value: "op7"},
         ];
         return {value, options}
     }
