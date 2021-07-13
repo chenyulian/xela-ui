@@ -4,7 +4,10 @@
         :class="{disabled: disabled}"
         @click="dropdownVisible = !disabled && !dropdownVisible" 
         @blur="dropdownVisible = false" tabindex="0">
-        <div class="xela-select-selected">{{seletedLabel}}</div>
+        <div class="xela-select-selected">
+            <span class="xela-select-placeholder" style="color: #d9d9d9" v-if="seletedLabel === ''">{{placeholder}}</span>
+            <span v-else>{{seletedLabel}}</span> 
+        </div>
         <div class="xela-select-toggle" :class="{active: dropdownVisible}"></div>
     </div>
     <transition name="fade">
@@ -35,6 +38,10 @@
             disabled: {
                 type: Boolean,
                 default: false
+            },
+            placeholder: {
+                type: String,
+                default: "请选择"
             }
         },
         data() {

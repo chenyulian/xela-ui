@@ -3,8 +3,8 @@
     <h2>示例一</h2>
     <div class="select-container">
          <Select v-model:value="value" :options="options" />
-         <Select v-model:value="value" :options="options" disabled />
-        {{value}}
+         <Select v-model:value="value" placeholder="请选择一个项目" :options="options" disabled />
+        value:{{value}}
     </div>
    
 </template>
