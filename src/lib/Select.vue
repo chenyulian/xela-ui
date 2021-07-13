@@ -5,8 +5,8 @@
         @click="dropdownVisible = !disabled && !dropdownVisible" 
         @blur="dropdownVisible = false" tabindex="0">
         <div class="xela-select-selected">
-            <span class="xela-select-placeholder" style="color: #d9d9d9" v-if="seletedLabel === ''">{{placeholder}}</span>
-            <span v-else>{{seletedLabel}}</span> 
+            <div style="color: #d9d9d9" v-if="seletedLabel === ''">{{placeholder}}</div>
+            <div class="xela-selected-label" v-else>{{seletedLabel}}</div> 
         </div>
         <div class="xela-select-toggle" :class="{active: dropdownVisible}"></div>
     </div>
@@ -15,7 +15,8 @@
             <li v-for="option in options" 
                 :key="option.value"
                 :class="{selected: value === option.value}"
-                @click="select(option.value)">{{option.label}}</li>
+                @click="select(option.value)">
+                <span>{{option.label}}</span></li>
         </ul>
     </transition>
 </div>
@@ -76,16 +77,28 @@ $base-color: #3463fe;
     width: 100%;
 }
 
+.xela-select-selected {
+    max-width: 90%;
+}
+
 .xela-select-label {
     height: 32px;
     border: 1px solid $border-color;
     border-radius: 4px;
-    width: 100%;
+    max-width: 100%;
     background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2px 8px;
+
+    & .xela-selected-label {
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
     &:hover {
         cursor: pointer;
         border-color: $base-color;
@@ -152,6 +165,7 @@ $base-color: #3463fe;
         height: 32px;
         line-height: 28px;
         padding-left: 8px;
+        
         &:hover {
             background: #F5F5F5;
             cursor: pointer;
@@ -161,6 +175,13 @@ $base-color: #3463fe;
         &.selected {
             color: $base-color;
             background: #F5F5F5;
+        }
+        &>span {
+            max-width: 90%;
+            max-height: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
     }
 }
