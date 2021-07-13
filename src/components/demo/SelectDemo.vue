@@ -2,7 +2,8 @@
     <h1>Select组件</h1>
     <h2>示例一</h2>
     <div class="select-container">
-         <Select v-model:value="value" :options="options" @update:selectedValue="value = $event" />
+         <Select v-model:value="value" :options="options" />
+         <Select v-model:value="value" :options="options" disabled />
         {{value}}
     </div>
    
@@ -16,7 +17,7 @@ export default {
         Select
     },
     setup() {
-        const value = ref(null);
+        const value = ref("");
         const options = [
             {label: "选项1", value: "op1"},
             {label: "选项2222222222222", value: "op2"},

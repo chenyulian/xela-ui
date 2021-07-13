@@ -1,6 +1,9 @@
 <template>
 <div class="xela-select">
-    <div class="xela-select-label" @click="dropdownVisible = !dropdownVisible" @blur="dropdownVisible = false" tabindex="0">
+    <div class="xela-select-label"
+        :class="{disabled: disabled}"
+        @click="dropdownVisible = !disabled && !dropdownVisible" 
+        @blur="dropdownVisible = false" tabindex="0">
         <div class="xela-select-selected">{{seletedLabel}}</div>
         <div class="xela-select-toggle" :class="{active: dropdownVisible}"></div>
     </div>
@@ -8,7 +11,7 @@
         <ul class="xela-select-container" v-if="dropdownVisible">
             <li v-for="option in options" 
                 :key="option.value"
-                :class="{selected: selectedValue === option.value}"
+                :class="{selected: value === option.value}"
                 @click="select(option.value)">{{option.label}}</li>
         </ul>
     </transition>
@@ -18,7 +21,7 @@
 </template>
 
 <script lang="ts">
-    import { computed, ref } from "vue";
+    import { computed } from "vue";
     import SelectOption from "./interface/SelectOption";
     export default {
         name: "Select",
@@ -28,6 +31,10 @@
             },
             options: {
                 type: Array
+            },
+            disabled: {
+                type: Boolean,
+                default: false
             }
         },
         data() {
@@ -37,18 +44,17 @@
         },
         
         setup(props,context) {
-            const selectedValue = ref("");
             const select = (value) => {
-                selectedValue.value = value;
-                context.emit("update:selectedValue",value);
+                context.emit("update:value",value);
             }
 
             const seletedLabel = computed(() => {
-                if (selectedValue.value !== "") return (props.options as SelectOption[]).find(i => i.value === selectedValue.value).label;
+                if (props.value !== "" && props.value !== null) 
+                    return (props.options as SelectOption[]).find(i => i.value === props.value).label;
                 return "";
             })
 
-            return { select, selectedValue, seletedLabel }
+            return { select, seletedLabel }
         }
     }
 </script>
@@ -81,8 +87,20 @@ $base-color: #3463fe;
     &:focus {
         border: 1px solid $base-color;
         box-shadow: 0px 0px 0px 2px rgb(179,197,225);
-
     }
+
+    &.disabled {
+        cursor: not-allowed;
+        & > .xela-select-selected {
+            color: $border-color;
+        }
+        &:hover,
+        &:focus {
+            border: 1px solid $border-color;
+            box-shadow: none;
+        }
+    }
+    
 }
 
 .xela-select-toggle {
@@ -91,24 +109,22 @@ $base-color: #3463fe;
     border-left: 2px solid $border-color;
     border-bottom: 2px solid $border-color;
     transform: rotate(-45deg) translateY(-4px);
-
-    // &.active {
-    //     border-color: $base-color;
-    // }
 }
 
 .xela-select-container {
     width: 100%;
-    margin-top: 4px;
+    margin-top: 2px;
     background-color:white;
     max-height: 200px;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     overflow-y: auto;
-    box-shadow: rgb(0 0 0 / 10%) 0px 20px 30px;
+    // box-shadow: rgb(0 0 0 / 10%) 0px 20px 30px;
     padding: 4px 0;
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 2;
 
     // 滚动条样式
     &::-webkit-scrollbar {
