@@ -111,7 +111,7 @@ $base-color: #3463fe;
 
     &.disabled {
         cursor: not-allowed;
-        & > .xela-select-selected {
+        & .xela-selected-label {
             color: $border-color;
         }
         &:hover,
