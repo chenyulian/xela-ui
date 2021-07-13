@@ -2,7 +2,7 @@
     <h1>Select组件</h1>
     <h2>示例一</h2>
     <div class="select-container">
-         <Select v-model:value="value" :options="options" />
+         <Select v-model:value="value" :options="options" @update:selectedValue="value = $event" />
         {{value}}
     </div>
    
@@ -26,7 +26,11 @@ export default {
             {label: "选项6", value: "op6"},
             {label: "选项7", value: "op7"},
         ];
-        return {value, options}
+        
+        const xxx = (selectedValue) => {
+            console.log(selectedValue)
+        }
+        return {value, options, xxx}
     }
 }
 </script>

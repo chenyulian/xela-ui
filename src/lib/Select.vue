@@ -1,17 +1,25 @@
 <template>
-<div class="xela-select-label" @click="dropdownVisible = !dropdownVisible" @blur="dropdownVisible = false" tabindex="0">
-    <div class="xela-select-selected"></div>
-    <div class="xela-select-toggle" :class="{active: dropdownVisible}"></div>
+<div class="xela-select">
+    <div class="xela-select-label" @click="dropdownVisible = !dropdownVisible" @blur="dropdownVisible = false" tabindex="0">
+        <div class="xela-select-selected">{{seletedLabel}}</div>
+        <div class="xela-select-toggle" :class="{active: dropdownVisible}"></div>
+    </div>
+    <transition name="fade">
+        <ul class="xela-select-container" v-if="dropdownVisible">
+            <li v-for="option in options" 
+                :key="option.value"
+                :class="{selected: selectedValue === option.value}"
+                @click="select(option.value)">{{option.label}}</li>
+        </ul>
+    </transition>
 </div>
-<transition name="fade">
-<ul class="xela-select-container" v-if="dropdownVisible">
-    <li v-for="option in options" :key="option.value">{{option.label}}</li>
-</ul>
-</transition>
+
    
 </template>
 
 <script lang="ts">
+    import { computed, ref } from "vue";
+    import SelectOption from "./interface/SelectOption";
     export default {
         name: "Select",
         props: {
@@ -29,11 +37,18 @@
         },
         
         setup(props,context) {
-            const xxx = ()=> {
-                console.log("xxx")
+            const selectedValue = ref("");
+            const select = (value) => {
+                selectedValue.value = value;
+                context.emit("update:selectedValue",value);
             }
 
-            return {xxx}
+            const seletedLabel = computed(() => {
+                if (selectedValue.value !== "") return (props.options as SelectOption[]).find(i => i.value === selectedValue.value).label;
+                return "";
+            })
+
+            return { select, selectedValue, seletedLabel }
         }
     }
 </script>
@@ -42,6 +57,11 @@
 @import "./xela.scss";
 $border-color: #d9d9d9;
 $base-color: #3463fe;
+
+.xela-select {
+    position: relative;
+    width: 100%;
+}
 
 .xela-select-label {
     height: 32px;
@@ -78,6 +98,7 @@ $base-color: #3463fe;
 }
 
 .xela-select-container {
+    width: 100%;
     margin-top: 4px;
     background-color:white;
     max-height: 200px;
@@ -85,6 +106,9 @@ $base-color: #3463fe;
     overflow-y: auto;
     box-shadow: rgb(0 0 0 / 10%) 0px 20px 30px;
     padding: 4px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
 
     // 滚动条样式
     &::-webkit-scrollbar {
@@ -95,7 +119,6 @@ $base-color: #3463fe;
         background-color: $border-color;
     }
     &::-webkit-scrollbar-track {
-        // border: 1px solid #bfbfbf;
         background-color: #F5F5F5;
     }
    
@@ -111,6 +134,11 @@ $base-color: #3463fe;
             cursor: pointer;
         }
         transition: background 0.2s ease ;
+
+        &.selected {
+            color: $base-color;
+            background: #F5F5F5;
+        }
     }
 }
 </style>
