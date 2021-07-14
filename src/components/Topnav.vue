@@ -1,9 +1,9 @@
 <template>
     <div class="topnav">
-        <div class="logo">LOGO</div>
+        <div class="logo"><router-link to="/">Xela</router-link></div>
         <div class="menu">
             <ul class="menu">
-                <li>菜单1</li>
+                <li>文档</li>
                 <li>菜单2</li>
             </ul>
         </div>
@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts">
-// import { inject, Ref } from '@vue/runtime-core'
 import { inject, Ref } from "vue";
     export default {
         name: "Topnav",
@@ -30,7 +29,7 @@ import { inject, Ref } from "vue";
 <style lang="scss" scoped>
 .topnav {
     width: 100%;
-    background: lightsalmon;
+    // background: lightsalmon;
     display: flex;
     justify-content: space-between;
     align-items: center;

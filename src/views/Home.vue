@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="home">
         <Topnav />
         <div class="banner">
             <h1>Xela UI</h1>
-            <h2>UI框架</h2>
+            <h2>一个Vue3 UI框架</h2>
             <p class="actions">
-                <a href="https://github.com">Github</a>
-                <router-link to="/doc">开始</router-link>
+                <Button color="#010d64"><a href="https://baidu.com">Github</a></Button>
+                <Button type="primary" color="#010d64"><router-link to="/doc">开始</router-link></Button>
             </p>
         </div>
     </div>
@@ -14,33 +14,34 @@
 
 <script lang="ts">
 import Topnav from "../components/Topnav.vue";
+import Button from "../lib/Button.vue";
     export default {
         components: {
-            Topnav
+            Topnav,Button
         }
     }
 </script>
 
 <style lang="scss" scoped>
+$base-color:#3463fe;
+
+.home {
+    background: white;
+    color: #010d64;
+}
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+}
 .banner {
-    padding: 100px 0;
+    padding-top: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: lightcyan;
     & .actions {
-        padding: 8px 0;
-        a {
-            margin: 0 8px;
-            background: #fff;
-            display: inline-block;
-            $h: 28px;
-            height: $h;
-            line-height: $h;
-            border-radius: $h / 2;
-            padding: 0 8px;
-        }
+        margin-top: 24px;
     }
 }
+
 </style>
