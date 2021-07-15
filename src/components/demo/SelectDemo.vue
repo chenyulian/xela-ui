@@ -1,37 +1,19 @@
 <template>
-    <h1>Select组件</h1>
-    <h2>示例一</h2>
-    <div class="select-container">
-         <Select v-model:value="value" :options="options" />
-         <Select v-model:value="value" placeholder="请选择一个项目" :options="options" disabled />
-        value:{{value}}
-    </div>
+    <h1>选择 Select</h1>
+    <Demo :component="SelectDemo1" />
+    <Demo :component="SelectDemo2" />
    
 </template>
 <script lang="ts">
-import Select from "../../lib/Select.vue";
-import { ref } from "vue";
-
+import Demo from "../Demo.vue";
+import SelectDemo1 from "./select/SelectDemo1.vue";
+import SelectDemo2 from "./select/SelectDemo2.vue";
 export default {
     components: {
-        Select
+        Demo
     },
     setup() {
-        const value = ref("");
-        const options = [
-            {label: "选项1", value: "op1"},
-            {label: "选项2222222222222xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzsssssssssssssssssssssssdddddddddddddddddddwwwwwwwwwwwwqqqq", value: "op2"},
-            {label: "选项3", value: "op3"},
-            {label: "选项4", value: "op4"},
-            {label: "选项5", value: "op5"},
-            {label: "选项6", value: "op6"},
-            {label: "选项7", value: "op7"},
-        ];
-        
-        const xxx = (selectedValue) => {
-            console.log(selectedValue)
-        }
-        return {value, options, xxx}
+        return { SelectDemo1, SelectDemo2 };
     }
 }
 </script>

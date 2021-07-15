@@ -1,7 +1,6 @@
 <template>
-    <h1>Switch组件示例</h1>
     <div class="demo">
-        <h2>基础用法</h2>
+        <h2>{{component.__sourceCodeTitle}}</h2>
         <div class="demo-component">
             <component :is="component" />
         </div>

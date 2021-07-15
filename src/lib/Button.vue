@@ -14,7 +14,7 @@
     export default {
         setup(props, context) {
             const {type, size, disabled, level, 
-                    loading, color} = props;
+                    color} = props;
             const classes = computed(()=>{
                 return {
                     [`xela-button-type-${type}`]: type,
@@ -112,7 +112,6 @@ $grey: grey;
     color: $color;
     border: 1px solid $border-color;
     border-radius: $radius;
-    // box-shadow: 0 1px 0 fade-out(black, 0.95);
     transition: background 250ms;
     &+&{
         margin-left: 8px;
@@ -208,13 +207,14 @@ $grey: grey;
         border-style: dashed;
     }
 
-    &.xela-button-type-default {
+    &.xela-button-type-default,
+    &.xela-button-type-dashed {
         &[disabled] {
-        cursor: not-allowed;
-        color: $grey;
-        &:hover {
-            border-color: $border-color;
-        }
+            cursor: not-allowed;
+            color: $grey;
+            &:hover {
+                border-color: $border-color;
+            }
         }
     }
 

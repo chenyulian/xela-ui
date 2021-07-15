@@ -30,7 +30,8 @@
         border: none;
         border-radius: $h / 2;
         position: relative;
-        background-color: grey;
+        background-color: #e3e3e3;
+        transition: background-color 250ms;
 
         & > span {
             position: absolute;

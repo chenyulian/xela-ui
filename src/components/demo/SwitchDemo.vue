@@ -1,4 +1,5 @@
 <template>
+    <h1>开关 Switch</h1>
     <div>
         <Demo :component="SwitchDemo1" />
     </div>
