@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="markdown-body">
         <h1>
             开始使用
         </h1>
@@ -11,19 +11,15 @@
 
         <h2>Vue 单文件组件</h2>
         <p>代码示例：</p>
-        <pre>
-            <code>
-                &lt;template&gt;
-                    &lt;div&gt;&lt;Button&gt;按钮&lt;/Button&gt;&lt;/div&gt;
-                &lt;/template&gt;
-                &lt;script&gt;
-                    import { Button } from "xela-ui"
-                    export default {
-                        components: { Button }
-                    }
-                &lt;/script&gt;
-        </code></pre>
-
+        <pre><code>&lt;template&gt;
+    &lt;div&gt;&lt;Button&gt;按钮&lt;/Button&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    import { Button } from "xela-ui"
+    export default {
+        components: { Button }
+    }
+&lt;/script&gt;</code></pre>
     </article>
 </template>
 
