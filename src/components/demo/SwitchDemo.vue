@@ -1,23 +1,12 @@
 <template>
     <div>
-        <h1>Switch组件示例</h1>
-        <div class="demo">
-            <h2>基础用法</h2>
-            <div class="demo-component">
-                <component :is="SwitchDemo1" />
-            </div>
-            <div class="demo-actions">
-                <Button>查看代码</Button>
-            </div>
-            <div class="demo-code">
-                <pre v-html="Prism.highlight(SwitchDemo1.__sourceCode, Prism.languages.html, 'html')" />
-            </div>
-        </div>
+        <Demo :component="SwitchDemo1" />
     </div>
 </template>
 <script lang="ts">
 import Switch from "../../lib/Switch.vue";
 import Button from "../../lib/Button.vue";
+import Demo from "../Demo.vue";
 import SwitchDemo1 from "./SwitchDemo1.vue";
 import "prismjs";
 import "prismjs/themes/prism-solarizedlight.css"
@@ -25,7 +14,7 @@ import {ref} from "vue";
 
 export default {
     components: {
-        Switch, Button
+        Switch, Button, Demo
     },
     setup() {
         const checked = ref(false);
