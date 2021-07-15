@@ -4,13 +4,13 @@
         <div class="demo">
             <h2>基础用法</h2>
             <div class="demo-component">
-                <SwitchDemo1 />
+                <component :is="SwitchDemo1" />
             </div>
             <div class="demo-actions">
                 <Button>查看代码</Button>
             </div>
             <div class="demo-code">
-                <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+                <pre v-text="SwitchDemo1.__sourceCode"></pre>
             </div>
         </div>
     </div>
@@ -20,13 +20,14 @@ import Switch from "../../lib/Switch.vue";
 import Button from "../../lib/Button.vue";
 import SwitchDemo1 from "./SwitchDemo1.vue";
 import {ref} from "vue";
+console.log(SwitchDemo1.__sourceCode)
 export default {
     components: {
         Switch, Button, SwitchDemo1
     },
     setup() {
         const checked = ref(false);
-        return {checked}
+        return { checked, SwitchDemo1 }
     }
 }
 </script>
