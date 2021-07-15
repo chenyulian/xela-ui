@@ -1,12 +1,12 @@
 <template>
     <div class="topnav">
         <div class="logo"><router-link to="/">Xela</router-link></div>
-        <div class="menu">
+        <!-- <div class="menu">
             <ul class="menu">
                 <li>文档</li>
                 <li>菜单2</li>
             </ul>
-        </div>
+        </div> -->
         <span class="toggleAside" @click="toggleAside"></span>
     </div>
 </template>

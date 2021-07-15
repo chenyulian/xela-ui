@@ -2,7 +2,7 @@
 基础用法
 </demo>
 <template>
-    <Button @click="toggle" >打开对话框</Button>
+    <Button @click="toggle" type="primary">打开对话框</Button>
     <Dialog v-model:visible="dialogVisible" :ok="ok" >
         <template v-slot:content>
                 <div>第一行文字</div>

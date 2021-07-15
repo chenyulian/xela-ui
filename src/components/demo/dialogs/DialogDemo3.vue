@@ -2,7 +2,7 @@
 禁用点击遮罩层关闭对话框
 </demo>
 <template>
-    <Button @click="visible= !visible" >打开对话框</Button>
+    <Button @click="visible= !visible" type="primary">打开对话框</Button>
     <Dialog v-model:visible="visible" :ok="ok" :closeOnClickOverlay="false">
         <template v-slot:content>
                 <div>对话框内容</div>

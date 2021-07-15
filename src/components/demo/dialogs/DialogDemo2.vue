@@ -2,7 +2,7 @@
 使用openDialog方法创建对话框
 </demo>
 <template>
-    <Button @click="open">创建对话框</Button>
+    <Button @click="open" type="primary">创建对话框</Button>
 </template>
 
 <script lang="ts">

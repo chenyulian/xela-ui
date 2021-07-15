@@ -33,6 +33,10 @@
         background-color: #e3e3e3;
         transition: background-color 250ms;
 
+        &:hover {
+            cursor: pointer;
+        }
+
         & > span {
             position: absolute;
             top: 2px;
