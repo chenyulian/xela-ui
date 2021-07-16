@@ -20,12 +20,12 @@
 </template>
 <script lang="ts">
 import Button from "../../lib/Button.vue";
-import ButtonDemo1 from "./buttons/ButtonDemo1.vue";
-import ButtonDemo2 from "./buttons/ButtonDemo2.vue";
-import ButtonDemo3 from "./buttons/ButtonDemo3.vue";
-import ButtonDemo4 from "./buttons/ButtonDemo4.vue";
-import ButtonDemo5 from "./buttons/ButtonDemo5.vue";
-import ButtonDemo6 from "./buttons/ButtonDemo6.vue";
+import ButtonDemo1 from "../../demo-code/DemoButton/ButtonDemo1.vue";
+import ButtonDemo2 from "../../demo-code/DemoButton/ButtonDemo2.vue";
+import ButtonDemo3 from "../../demo-code/DemoButton/ButtonDemo3.vue";
+import ButtonDemo4 from "../../demo-code/DemoButton/ButtonDemo4.vue";
+import ButtonDemo5 from "../../demo-code/DemoButton/ButtonDemo5.vue";
+import ButtonDemo6 from "../../demo-code/DemoButton/ButtonDemo6.vue";
 import Demo from "../Demo.vue";
 
 export default {

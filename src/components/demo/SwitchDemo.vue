@@ -6,7 +6,7 @@
 </template>
 <script lang="ts">
 import Demo from "../Demo.vue";
-import SwitchDemo1 from "./SwitchDemo1.vue";
+import SwitchDemo1 from "../../demo-code/DemoSwitch/SwitchDemo1.vue";
 export default {
     components: {
         Demo
