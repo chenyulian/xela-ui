@@ -17,7 +17,7 @@
     import { ref } from "vue";
     import Button from "../lib/Button.vue";
     import "prismjs";
-    import "prismjs/themes/prism-solarizedlight.css";
+    import "prismjs/themes/prism.css";
 
     export default {
         props: {
@@ -40,6 +40,7 @@ $border-color: #efeff5;
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;
+  overflow-x: hidden;
   >h2 {
     font-size: 20px;
     padding: 8px 16px;
@@ -55,6 +56,8 @@ $border-color: #efeff5;
   &-code {
     padding: 8px 16px;
     border-top: 1px dashed $border-color;
+    background:#f6f8fa;
+    font-size: 14px;
     >pre {
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;

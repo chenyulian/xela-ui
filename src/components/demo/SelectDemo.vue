@@ -6,8 +6,8 @@
 </template>
 <script lang="ts">
 import Demo from "../Demo.vue";
-import SelectDemo1 from "./select/SelectDemo1.vue";
-import SelectDemo2 from "./select/SelectDemo2.vue";
+import SelectDemo1 from "../../demo-code/DemoSelect/SelectDemo1.vue";
+import SelectDemo2 from "../../demo-code/DemoSelect/SelectDemo2.vue";
 export default {
     components: {
         Demo

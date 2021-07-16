@@ -7,7 +7,7 @@
 
 <script lang="ts">
     import { ref } from "vue";
-    import Select from "../../../lib/Select.vue";
+    import Select from "../../lib/Select.vue";
     export default {
         components: { Select },
         setup() {
