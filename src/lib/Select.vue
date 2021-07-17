@@ -108,6 +108,7 @@ $base-color: #3463fe;
     &:focus {
         border: 1px solid $base-color;
         box-shadow: 0px 0px 0px 2px rgb(179,197,225);
+        outline: none;
     }
 
     &.disabled {

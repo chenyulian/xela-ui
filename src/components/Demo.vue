@@ -58,6 +58,7 @@ $border-color: #efeff5;
     border-top: 1px dashed $border-color;
     background:#f6f8fa;
     font-size: 14px;
+     overflow-x: auto;
     >pre {
       line-height: 1.1;
       font-family: Consolas, 'Courier New', Courier, monospace;

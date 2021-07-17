@@ -80,7 +80,7 @@ aside {
     width: $aside-width;
     background-color:#fff;
     border-right: 1px solid $border-color;
-    position:absolute;
+    position:fixed;
     top: 0;
     left: 0;
     padding-top: 70px;

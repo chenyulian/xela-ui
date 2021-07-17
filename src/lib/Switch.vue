@@ -37,6 +37,10 @@
             cursor: pointer;
         }
 
+        &:focus {
+            outline: none;
+        }
+
         & > span {
             position: absolute;
             top: 2px;

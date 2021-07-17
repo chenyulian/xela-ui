@@ -14,9 +14,9 @@ export default {
     const asideVisible = ref(width > 500 ? true:false);
     provide("asideVisible",asideVisible);
     router.afterEach(() => {
-     if(width < 500) {
-       asideVisible.value = false;
-     }
+      if(width <= 500) {
+        asideVisible.value = false;
+      }
     });
     onMounted(()=>{
         window.onresize = () => {

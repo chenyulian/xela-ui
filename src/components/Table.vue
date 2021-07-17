@@ -1,17 +1,19 @@
 <template>
-    <h2>{{title}}</h2>
-    <table class="xela-table">
-        <thead>
-            <tr>
-                <th class="xela-table-title" v-for="(item,index) in columns" :key="index">{{item}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="item in data" :key="item.name">
-                <td class="xela-table-title td" v-for="(value,index) in item" :key="index">{{value}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-container">
+        <h2>{{title}}</h2>
+        <table class="xela-table">
+            <thead>
+                <tr>
+                    <th class="xela-table-title" v-for="(item,index) in columns" :key="index">{{item}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in data" :key="item.name">
+                    <td class="xela-table-title td" v-for="(value,index) in item" :key="index">{{value}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script lang="ts">
@@ -28,6 +30,10 @@
 </script>
 
 <style lang="scss" scoped>
+.table-container {
+    max-width: 100%;
+    overflow-x: auto;
+}
 h2 {
     font-weight: 400;
     color: #1f2f3d;

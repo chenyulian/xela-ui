@@ -6,7 +6,7 @@
     <Button type="primary" loading>加载中</Button>
     <Button type="dashed" loading>加载中</Button>
     <Button type="text" loading>加载中</Button>
-    <Button type="link" loading>加载中</Button>                                                                                                                                                                                              
+    <Button type="link" loading>加载中</Button>
 </template>
 
 <script lang="ts">
