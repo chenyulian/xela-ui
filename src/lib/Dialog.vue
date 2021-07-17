@@ -1,20 +1,22 @@
 <template>
-    <template v-if="visible">
-        <div class="xela-dialog-overlay" @click="clickOnOverlay">
-        </div>
-        <div class="xela-dialog-wrapper">
-            <div class="xela-dialog">
-                <header><slot name="title" /> <span class="xela-dialog-close" @click="close"></span></header>
-                <main>
-                   <slot name="content" />
-                </main>
-                <footer>
-                    <Button type="primary" @click="ok">确定</Button>
-                    <Button @click="cancel">取消</Button>
-                </footer>
+    <teleport to="#app">
+        <template v-if="visible">
+            <div class="xela-dialog-overlay" @click="clickOnOverlay">
             </div>
-        </div>
-    </template>
+            <div class="xela-dialog-wrapper">
+                <div class="xela-dialog">
+                    <header><slot name="title" /> <span class="xela-dialog-close" @click="close"></span></header>
+                    <main>
+                    <slot name="content" />
+                    </main>
+                    <footer>
+                        <Button type="primary" @click="ok">确定</Button>
+                        <Button @click="cancel">取消</Button>
+                    </footer>
+                </div>
+            </div>
+        </template>
+    </teleport>
 </template>
 
 <script lang="ts">
