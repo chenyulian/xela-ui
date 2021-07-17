@@ -9,12 +9,12 @@
                     <li>
                         <router-link to="/doc/intro" active-class="active">介绍</router-link>
                     </li>
-                    <li>
+                    <!-- <li>
                         <router-link to="/doc/install" active-class="active">安装</router-link>
                     </li>
                     <li>
                         <router-link to="/doc/get-started" active-class="active">开始使用</router-link>
-                    </li>
+                    </li> -->
                 </ol>
                 <h3>组件列表</h3>
                 <ol>
