@@ -65,7 +65,7 @@
             },
             size: {
                 type: String,
-                default: "normal"
+                default: "medium"
             },
             level: {
                 type: String,
@@ -81,7 +81,6 @@
             },
             color: {
                 type: String,
-                default: "#3463fe"
             }
         },
     }

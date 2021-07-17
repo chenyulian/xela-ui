@@ -34,7 +34,8 @@
                 type: String
             },
             options: {
-                type: Array
+                type: Array,
+                default: []
             },
             disabled: {
                 type: Boolean,
