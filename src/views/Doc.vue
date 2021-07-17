@@ -2,6 +2,7 @@
     <div class="layout">
         <Topnav class="nav"/>
         <div class="content">
+            <transition name="slide-fade">
             <aside v-if="asideVisible">
                 <h3>开始</h3>
                 <ol>
@@ -49,6 +50,7 @@
                     </li> -->
                 </ol>
             </aside>
+            </transition>
             <main>
                 <router-view />
             </main>
@@ -72,12 +74,13 @@ import Topnav from "../components/Topnav.vue";
 
 <style lang="scss" scoped>
 $border-color: #efeff5;
-$base-color: #3463fe;
+$base-color:#2c3bc4;
+$aside-width: 270px;
 aside {
-    width: 270px;
+    width: $aside-width;
     background-color:#fff;
     border-right: 1px solid $border-color;
-    position:fixed;
+    position:absolute;
     top: 0;
     left: 0;
     padding-top: 70px;
@@ -112,8 +115,9 @@ aside {
         }
     }
      @media (max-width:500px) {
-        
+        // display: none;
      }
+     transition: left 250ms;
 }
 
 .active {
@@ -157,4 +161,17 @@ aside {
     }
 }
 
+.slide-fade-enter-active {
+  transition: all 250ms ease;
+}
+.slide-fade-leave-active {
+  transition: all 250ms ease;
+}
+.slide-fade-enter{
+  transform: translateX(-$aside-width);
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-$aside-width);
+}
 </style>

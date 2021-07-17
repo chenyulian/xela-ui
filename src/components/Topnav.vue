@@ -1,13 +1,15 @@
 <template>
     <div class="topnav">
-        <div class="logo"><router-link to="/">Xela</router-link></div>
+        <router-link to="/" class="logo"><img src="../assets/logo.png"></router-link>
         <!-- <div class="menu">
             <ul class="menu">
                 <li>文档</li>
                 <li>菜单2</li>
             </ul>
         </div> -->
-        <span class="toggleAside" @click="toggleAside"></span>
+        <span class="toggleAside" @click="toggleAside"><svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-JUSTIFYALL"></use>
+</svg></span>
     </div>
 </template>
 
@@ -27,9 +29,11 @@ import { inject, Ref } from "vue";
 </script>
 
 <style lang="scss" scoped>
+$border-color: #efeff5;
 .topnav {
     width: 100%;
-    // background: lightsalmon;
+    background: white;
+    border-bottom: 1px solid $border-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,9 +61,7 @@ import { inject, Ref } from "vue";
 
     & .toggleAside {
         display: none;
-        width: 24px;
-        height: 24px;
-        background: purple;
+        font-size: 32px;
         position: absolute;
         left: 16px;
         top: 50%;

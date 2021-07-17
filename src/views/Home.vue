@@ -5,8 +5,8 @@
             <h1>Xela UI</h1>
             <h2>一个Vue3 UI框架</h2>
             <p class="actions">
-                <Button><a href="https://baidu.com">Github</a></Button>
-                <Button type="primary" ><router-link to="/doc">开始</router-link></Button>
+                <a href="https://baidu.com">Github</a>
+                <router-link to="/doc">开始</router-link>
             </p>
         </div>
     </div>
@@ -23,7 +23,7 @@ import Button from "../lib/Button.vue";
 </script>
 
 <style lang="scss" scoped>
-$base-color:#3463fe;
+$base-color:#2c3bc4;
 
 .home {
     background: white;
@@ -41,6 +41,23 @@ h1 {
     align-items: center;
     & .actions {
         margin-top: 24px;
+    }
+}
+.actions {
+   padding: 8px 4px;
+    margin-top: 20px;
+    color: white;
+    outline: none;
+    a {
+      display: inline-block;
+      $h: 32px;
+      height: $h;
+      line-height: $h;
+      margin: 0 8px;
+      padding: 0 16px;
+      background: $base-color;
+      border-radius: $h/2;
+      font-size: 14px;
     }
 }
 
