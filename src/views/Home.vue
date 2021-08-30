@@ -5,7 +5,7 @@
             <h1>Xela UI</h1>
             <h2>一个Vue3 UI框架</h2>
             <p class="actions">
-                <a href="https://baidu.com">Github</a>
+                <a href="https://github.com/chenyulian/Vue-ToDo">Github</a>
                 <router-link to="/doc">开始</router-link>
             </p>
         </div>
